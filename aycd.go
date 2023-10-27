@@ -132,7 +132,24 @@ func (a *Aycd) SolveRecaptchaV3(ctx context.Context, settings *Settings, payload
 		return nil, err
 	}
 
-	return nil, errors.New("not implemented")
+	taskId, _ := nanoid.New()
+
+	request := &autosolve.CaptchaTokenRequest{
+		TaskId:   taskId,
+		Url:      payload.EndpointUrl,
+		SiteKey:  payload.EndpointKey,
+		Version:  autosolve.ReCaptchaV3,
+		Action:   payload.Action,
+		MinScore: payload.MinScore,
+	}
+
+	response, err := a.solveTask(ctx, settings, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response, nil
 }
 
 func (a *Aycd) SolveHCaptcha(ctx context.Context, settings *Settings, payload *HCaptchaPayload) (ICaptchaResponse, error) {
