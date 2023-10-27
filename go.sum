@@ -1,0 +1,6 @@
+github.com/aidarkhanov/nanoid/v2 v2.0.5 h1:HLx5RyDuvOZ6YxlhYTxSU8Il+q7xVKmXM62MfSxziN0=
+github.com/aidarkhanov/nanoid/v2 v2.0.5/go.mod h1:YF/U48D1yA3AoGGUdRrCV95J/KJBShvR9TyLqQwdtlI=
+github.com/rabbitmq/amqp091-go v1.1.0 h1:qx8cGMJha71/5t31Z+LdPLdPrkj/BvD38cqC3Bi1pNI=
+github.com/rabbitmq/amqp091-go v1.1.0/go.mod h1:ogQDLSOACsLPsIq0NpbtiifNZi2YOz0VTJ0kHRghqbM=
+gitlab.com/aycd-inc/autosolve-clients-v3/autosolve-client-go v0.0.0-20221116075054-aa24cae477cd h1:A4p3PaxvjVr+YKkRxY1bCFBtgMbbjoGc0g2A2ZLHr4g=
+gitlab.com/aycd-inc/autosolve-clients-v3/autosolve-client-go v0.0.0-20221116075054-aa24cae477cd/go.mod h1:owonWqyrfWjhWUuJc3I/4hb/8UaQG3GT+RacxLJPL7s=

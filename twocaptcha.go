@@ -5,11 +5,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/justhyped/gocaptcha/internal"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/jordansinko/gocaptcha/internal"
 )
 
 type TwoCaptcha struct {
@@ -21,6 +22,13 @@ func NewTwoCaptcha(apiKey string) *TwoCaptcha {
 	return &TwoCaptcha{
 		apiKey:  apiKey,
 		baseUrl: "https://2captcha.com",
+	}
+}
+
+func NewXevil(apiKey string) *TwoCaptcha {
+	return &TwoCaptcha{
+		apiKey:  apiKey,
+		baseUrl: "http://2captcha.com",
 	}
 }
 
