@@ -80,7 +80,7 @@ func (cp *CapSolver) SolveRecaptchaV3(ctx context.Context, settings *Settings, p
 	if payload.IsEnterprise {
 		task.Put("type", "ReCaptchaV3EnterpriseTaskProxyLess")
 	} else {
-		task.Put("type", "ReCaptchaV3TaskProxyLess")
+		task.Put("type", "ReCaptchaV3M1TaskProxyLess")
 	}
 
 	task.Put("websiteURL", payload.EndpointUrl)
