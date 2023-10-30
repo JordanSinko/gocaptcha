@@ -28,6 +28,9 @@ type RecaptchaV3Payload struct {
 
 	// MinScore defaults to 0.3, accepted values are 0.3, 0.6, 0.9
 	MinScore float32
+
+	// ProxyUrl is the proxy to send to the solver when solving
+	ProxyUrl string
 }
 
 type TurnstilePayload struct {

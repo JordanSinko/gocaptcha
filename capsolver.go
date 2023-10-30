@@ -86,7 +86,10 @@ func (cp *CapSolver) SolveRecaptchaV3(ctx context.Context, settings *Settings, p
 	task.Put("websiteURL", payload.EndpointUrl)
 	task.Put("websiteKey", payload.EndpointKey)
 	task.Put("pageAction", payload.Action)
-	task.Put("minScore", payload.MinScore)
+
+	if payload.ProxyUrl != "" {
+		task.Put("proxy", payload.ProxyUrl)
+	}
 
 	request.Put("task", task)
 
