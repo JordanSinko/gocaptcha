@@ -88,6 +88,7 @@ func (cp *CapSolver) SolveRecaptchaV3(ctx context.Context, settings *Settings, p
 	task.Put("pageAction", payload.Action)
 
 	if payload.ProxyUrl != "" {
+		task.Put("type", "ReCaptchaV3Task")
 		task.Put("proxy", payload.ProxyUrl)
 	}
 
