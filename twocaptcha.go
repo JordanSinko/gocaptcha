@@ -70,7 +70,9 @@ func (t *TwoCaptcha) SolveRecaptchaV2(ctx context.Context, settings *Settings, p
 	task.Set("googlekey", payload.EndpointKey)
 	task.Set("pageurl", payload.EndpointUrl)
 
-	if payload.IsInvisibleCaptcha {
+	if payload.IsEnterprise {
+		task.Set("enterprise", "1")
+	} else if payload.IsInvisibleCaptcha {
 		task.Set("invisible", "1")
 	}
 

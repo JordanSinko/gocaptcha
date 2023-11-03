@@ -58,11 +58,19 @@ func (a *AntiCaptcha) SolveImageCaptcha(ctx context.Context, settings *Settings,
 }
 
 func (a *AntiCaptcha) SolveRecaptchaV2(ctx context.Context, settings *Settings, payload *RecaptchaV2Payload) (ICaptchaResponse, error) {
+
+	t := `RecaptchaV2TaskProxyless`
+
+	if payload.IsEnterprise {
+		t = `RecaptchaV2EnterpriseTaskProxyless`
+	}
+
 	task := map[string]any{
-		"type":        "NoCaptchaTaskProxyless",
+		"type":        t,
 		"websiteURL":  payload.EndpointUrl,
 		"websiteKey":  payload.EndpointKey,
-		"isInvisible": payload.IsInvisibleCaptcha}
+		"isInvisible": payload.IsInvisibleCaptcha,
+	}
 
 	result, err := a.solveTask(ctx, settings, task)
 	if err != nil {

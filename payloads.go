@@ -10,6 +10,9 @@ type RecaptchaV2Payload struct {
 
 	// IsInvisibleCaptcha Enable if endpoint has invisible Recaptcha V2
 	IsInvisibleCaptcha bool
+
+	// IsEnterprise should be set if V2 Enterprise is used
+	IsEnterprise bool
 }
 
 type RecaptchaV3Payload struct {

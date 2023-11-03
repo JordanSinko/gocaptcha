@@ -113,7 +113,9 @@ func (a *Aycd) SolveRecaptchaV2(ctx context.Context, settings *Settings, payload
 		Version: autosolve.ReCaptchaV2Checkbox,
 	}
 
-	if payload.IsInvisibleCaptcha {
+	if payload.IsEnterprise {
+		request.Version = autosolve.ReCaptchaV2Enterprise
+	} else if payload.IsInvisibleCaptcha {
 		request.Version = autosolve.ReCaptchaV2Invisible
 	}
 
