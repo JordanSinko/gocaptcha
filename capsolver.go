@@ -48,11 +48,12 @@ func (cp *CapSolver) SolveRecaptchaV2(ctx context.Context, settings *Settings, p
 		task.Put("type", "ReCaptchaV2EnterpriseTaskProxyLess")
 	} else {
 		task.Put("type", "ReCaptchaV2TaskProxyLess")
+		task.Put("isInvisible", payload.IsInvisibleCaptcha)
+
 	}
 
 	task.Put("websiteURL", payload.EndpointUrl)
 	task.Put("websiteKey", payload.EndpointKey)
-	task.Put("isInvisible", payload.IsInvisibleCaptcha)
 
 	request.Put("task", task)
 
