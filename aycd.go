@@ -172,6 +172,10 @@ func (a *Aycd) SolveTurnstile(ctx context.Context, settings *Settings, payload *
 	return nil, errors.New("not implemented")
 }
 
+func (a *Aycd) SolveWaf(ctx context.Context, settings *Settings, payload *WafPayload) (ICaptchaResponse, error) {
+	return nil, errors.New("not supported")
+}
+
 func (a *Aycd) connect() error {
 
 	a.mu.Lock()

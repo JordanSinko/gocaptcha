@@ -127,6 +127,34 @@ func (cp *CapSolver) SolveTurnstile(ctx context.Context, settings *Settings, pay
 
 }
 
+func (cp *CapSolver) SolveWaf(ctx context.Context, settings *Settings, payload *WafPayload) (ICaptchaResponse, error) {
+	request := j.Object()
+
+	request.Put("clientKey", cp.apiKey)
+
+	task := j.Object()
+
+	task.Put("type", "AntiAwsWafTaskProxyLess")
+	task.Put("websiteURL", payload.EndpointUrl)
+
+	if payload.ProxyUrl != "" {
+		task.Put("type", "AntiAwsWafTask")
+		task.Put("proxy", payload.ProxyUrl)
+	}
+
+	request.Put("task", task)
+
+	result, err := cp.solveTask(ctx, settings, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	// result.reportGood = cp.report("reportgood", result.taskId, settings)
+	// result.reportBad = cp.report("reportbad", result.taskId, settings)
+	return result, nil
+}
+
 func (cp *CapSolver) report(action, taskId string, settings *Settings) func(ctx context.Context) error {
 	type response struct {
 		Status    int    `json:"status"`

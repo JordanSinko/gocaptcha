@@ -130,6 +130,10 @@ func (a *AntiCaptcha) SolveTurnstile(ctx context.Context, settings *Settings, pa
 	return result, nil
 }
 
+func (a *AntiCaptcha) SolveWaf(ctx context.Context, settings *Settings, payload *WafPayload) (ICaptchaResponse, error) {
+	return nil, errors.New("not supported")
+}
+
 func (a *AntiCaptcha) solveTask(ctx context.Context, settings *Settings, task map[string]any) (*CaptchaResponse, error) {
 	taskId, syncAnswer, err := a.createTask(ctx, settings, task)
 	if err != nil {

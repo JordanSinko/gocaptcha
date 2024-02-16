@@ -65,3 +65,11 @@ type HCaptchaPayload struct {
 	// Can be found on the Endpoint URL page
 	EndpointKey string
 }
+
+type WafPayload struct {
+	// EndpointUrl is the endpoint that has AwsWaf Protection
+	EndpointUrl string
+
+	// ProxyUrl is the proxy to send to the solver when solving
+	ProxyUrl string
+}

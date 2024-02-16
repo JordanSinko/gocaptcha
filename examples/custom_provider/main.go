@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+
 	"github.com/jordansinko/gocaptcha"
 )
 
@@ -44,6 +45,11 @@ func (c CustomProvider) SolveHCaptcha(ctx context.Context, settings *gocaptcha.S
 }
 
 func (c CustomProvider) SolveTurnstile(ctx context.Context, settings *gocaptcha.Settings, payload *gocaptcha.TurnstilePayload) (gocaptcha.ICaptchaResponse, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (c CustomProvider) SolveWaf(ctx context.Context, settings *gocaptcha.Settings, payload *gocaptcha.WafPayload) (gocaptcha.ICaptchaResponse, error) {
 	//TODO implement me
 	panic("implement me")
 }
